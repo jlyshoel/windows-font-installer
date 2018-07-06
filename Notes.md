@@ -1,4 +1,7 @@
-  
+https://dopeydev.com/wcf-interprocess-communication/
+
+--------
+
 This solution is clean, works without reboot(!) but it does show a "Installing font..." dialogbox (which disappears by itself).
 First, add a reference to system32\shell32.dll in your project.
 And then, use just these 3 lines of code to install a font:
