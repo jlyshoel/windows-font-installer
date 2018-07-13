@@ -31,7 +31,12 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration.Install" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceProcess" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -40,8 +45,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Lib\FontInstaller.cs" />
+    <Compile Include="Service\FontInstallerService.cs" />
+    <Compile Include="Contract\IFontInstallerService.cs" />
+    <Compile Include="Contract\IFontInstallerCallbackService.cs" />
+    <Compile Include="Lib\FontRegistry.cs" />
+    <Compile Include="Lib\ServiceChecker.cs" />
+    <Compile Include="Lib\ServiceInstaller.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

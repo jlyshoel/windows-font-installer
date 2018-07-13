@@ -16,10 +16,6 @@ namespace windows_font_installer_gui
         {
             InitializeComponent();
         }
-
-        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
     }
+
 }
