@@ -18,8 +18,8 @@ namespace JLyshoel.FontInstaller.GUI
             InitializeComponent();
 
             FileUploadLabel.AllowDrop = true;
-            FileUploadLabel.DragEnter += new DragEventHandler(Form1_DragEnter);
-            FileUploadLabel.DragDrop += new DragEventHandler(Form1_DragDrop); 
+            FileUploadLabel.DragEnter += new DragEventHandler(FileUploadLabel_DragEnter);
+            FileUploadLabel.DragDrop += new DragEventHandler(FileUploadLabel_DragDrop); 
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
@@ -27,12 +27,12 @@ namespace JLyshoel.FontInstaller.GUI
             Application.Exit();
         }
 
-        void Form1_DragEnter(object sender, DragEventArgs e)
+        void FileUploadLabel_DragEnter(object sender, DragEventArgs e)
         {
             if (e.Data.GetDataPresent(DataFormats.FileDrop)) e.Effect = DragDropEffects.Copy;
         }
 
-        void Form1_DragDrop(object sender, DragEventArgs e)
+        void FileUploadLabel_DragDrop(object sender, DragEventArgs e)
         {
             string[] files = (string[])e.Data.GetData(DataFormats.FileDrop);
             foreach (string file in files)
