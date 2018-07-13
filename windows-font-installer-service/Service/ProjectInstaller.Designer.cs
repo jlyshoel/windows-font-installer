@@ -39,8 +39,11 @@
             // 
             // serviceInstaller1
             // 
+            this.serviceInstaller1.Description = "Provides the ability to install fonts from UI";
+            this.serviceInstaller1.DisplayName = "Windows Font Installer Service";
             this.serviceInstaller1.ServiceName = "WindowsFontInstallerService";
             this.serviceInstaller1.StartType = System.ServiceProcess.ServiceStartMode.Automatic;
+            this.serviceInstaller1.AfterInstall += new System.Configuration.Install.InstallEventHandler(this.serviceInstaller1_AfterInstall);
             // 
             // ProjectInstaller
             // 

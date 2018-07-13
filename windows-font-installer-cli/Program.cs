@@ -53,7 +53,7 @@ namespace JLyshoel.FontInstaller
 
 
 
-            new FontInstallerCLICallbackService().Run();
+            //new FontInstallerCLICallbackService().Run();
 
 
 

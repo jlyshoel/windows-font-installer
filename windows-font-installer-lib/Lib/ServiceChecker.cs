@@ -9,12 +9,12 @@ using System.Management;
 
 namespace JLyshoel.FontInstaller.Lib
 {
-    public class SyndeoServiceCheck
+    public class ServiceCheck
     {
 
         private static readonly string SERVICE_NAME = "WindowsFontInstaller";
 
-        public static bool IsSyndeoInstalled()
+        public static bool IsInstalled()
         {
             try
             {
@@ -26,7 +26,7 @@ namespace JLyshoel.FontInstaller.Lib
             return false;
         }
 
-        public static ServiceControllerStatus GetSyndeoStatus()
+        public static ServiceControllerStatus GetStatus()
         {
             try
             {
@@ -42,7 +42,7 @@ namespace JLyshoel.FontInstaller.Lib
             return ServiceControllerStatus.Stopped;
         }
 
-        public static bool GetSyndeoEnabled()
+        public static bool GetEnabled()
         {
             try
             {
@@ -59,7 +59,7 @@ namespace JLyshoel.FontInstaller.Lib
             return false;
         }
 
-        public static void SetSyndeoEnabled(bool enabled)
+        public static void SetEnabled(bool enabled)
         {
             try
             {
@@ -72,7 +72,7 @@ namespace JLyshoel.FontInstaller.Lib
             catch (Exception e) { }
         }
 
-        public static void StartSyndeo()
+        public static void Start()
         {
             ServiceController ctl = ServiceController.GetServices()
                 .FirstOrDefault(s => s.ServiceName == SERVICE_NAME);
@@ -80,7 +80,7 @@ namespace JLyshoel.FontInstaller.Lib
             if (ctl != null) ctl.Start();
         }
 
-        public static void StopSyndeo()
+        public static void Stop()
         {
             ServiceController ctl = ServiceController.GetServices()
                 .FirstOrDefault(s => s.ServiceName == SERVICE_NAME);
@@ -88,7 +88,7 @@ namespace JLyshoel.FontInstaller.Lib
             if (ctl != null) ctl.Stop();
         }
 
-        public static bool InstallSyndeoService(string path)
+        public static bool InstallService(string path)
         {
             string dirPath = path;
             if (!dirPath.EndsWith(@"\"))
@@ -98,7 +98,7 @@ namespace JLyshoel.FontInstaller.Lib
             ServiceInstaller.InstallService(SERVICE_NAME, assembly);
             return true;
         }
-        public static bool UninstallSyndeoService(string path)
+        public static bool UninstallService(string path)
         {
             string dirPath = path;
             if (!dirPath.EndsWith(@"\"))

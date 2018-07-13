@@ -104,7 +104,7 @@
             this.FileUploadLabel.Name = "FileUploadLabel";
             this.FileUploadLabel.Size = new System.Drawing.Size(328, 410);
             this.FileUploadLabel.TabIndex = 4;
-            this.FileUploadLabel.Text = "Drop files here or double click to select";
+            this.FileUploadLabel.Text = "Drop files here or click to select";
             this.FileUploadLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.FileUploadLabel.Click += new System.EventHandler(this.FileUploadLabel_Click);
             // 
