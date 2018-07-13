@@ -1,3 +1,5 @@
+> This project is still in BETA
+
 # Windows Font Installer
 In Windows 10 you can't install fonts without admin privileges. There doesn’t seem to be any available GPO nor a simple workaround for this problem. This is especially annoying if you are a sysadmin in a domain environment where your users need the ability to install fonts in their day to day work. You’ll spend your day running around entering your admin password all day. This handy little tool will allow your users to install fonts without you entering your password every 5 minutes. 
 
