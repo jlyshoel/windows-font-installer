@@ -370,7 +370,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Windows Font Installer"
         "ProductCode" = "8:{AAB8D60D-0E49-4436-B003-3438D962F965}"
-        "PackageCode" = "8:{597314BF-AAA2-4DC7-A857-E8B0681FB1C0}"
+        "PackageCode" = "8:{EA194D76-DD80-45A0-A6D6-5B79783E7344}"
         "UpgradeCode" = "8:{0F080099-0D53-49D5-BBD3-A4F754A68854}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
@@ -501,7 +501,7 @@
             "Target" = "8:_F0F2DE4D1F9D462DB21E7851F3731FC2"
             "Folder" = "8:_D409F4EFEE8841668D05A89EF741570B"
             "WorkingFolder" = "8:_2A43F43987004C82A3DD10F7105B8F19"
-            "Icon" = "8:"
+            "Icon" = "8:_B5B20E84321E4E5889122751278D95C4"
             "Feature" = "8:"
             }
         }
