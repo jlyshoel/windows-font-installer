@@ -12,11 +12,9 @@ namespace JLyshoel.FontInstaller.Service
         public ServiceHost serviceHost = null;
         public WindowsFontInstallerService()
         {
-            // Name the Windows Service
             ServiceName = "WindowsFontInstallerService";
         }
 
-        // Start the Windows service.
         protected override void OnStart(string[] args)
         {
             if (serviceHost != null)
@@ -24,13 +22,8 @@ namespace JLyshoel.FontInstaller.Service
                 serviceHost.Close();
             }
 
-            // Create a ServiceHost for the CalculatorService type and 
-            // provide the base address.
             serviceHost = new ServiceHost(typeof(FontInstallerService), new Uri("net.pipe://localhost"));
             serviceHost.AddServiceEndpoint(typeof(IFontInstallerService), new NetNamedPipeBinding(), "FontInstallerService");
-
-            // Open the ServiceHostBase to create listeners and start 
-            // listening for messages.
             serviceHost.Open();
         }
         
