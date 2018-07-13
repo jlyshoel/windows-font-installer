@@ -297,6 +297,13 @@
         }
         "LaunchCondition"
         {
+            "{836E08B8-0285-4809-BA42-01DB6754A45D}:_FD08100F2AA6422D994BA6A0CEF57052"
+            {
+            "Name" = "8:AdminUser"
+            "Condition" = "8:AdminUser"
+            "Message" = "8:<Error Message>"
+            "InstallUrl" = "8:"
+            }
         }
         "Locator"
         {
@@ -311,7 +318,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Windows Font Installer"
         "ProductCode" = "8:{AAB8D60D-0E49-4436-B003-3438D962F965}"
-        "PackageCode" = "8:{7233C70D-29EF-4412-AD82-1670DDFC8CA9}"
+        "PackageCode" = "8:{20A03A1B-F7C5-406D-A8B3-83676305A765}"
         "UpgradeCode" = "8:{0F080099-0D53-49D5-BBD3-A4F754A68854}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
