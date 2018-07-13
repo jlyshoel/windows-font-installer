@@ -318,7 +318,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Windows Font Installer"
         "ProductCode" = "8:{AAB8D60D-0E49-4436-B003-3438D962F965}"
-        "PackageCode" = "8:{20A03A1B-F7C5-406D-A8B3-83676305A765}"
+        "PackageCode" = "8:{52505112-44FD-4504-AD28-335BF1BF7805}"
         "UpgradeCode" = "8:{0F080099-0D53-49D5-BBD3-A4F754A68854}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
