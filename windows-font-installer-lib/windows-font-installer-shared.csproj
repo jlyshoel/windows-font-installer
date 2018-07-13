@@ -45,9 +45,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Contract\IFontInstallerCallbackService.cs" />
     <Compile Include="Service\FontInstallerService.cs" />
     <Compile Include="Contract\IFontInstallerService.cs" />
-    <Compile Include="Contract\IFontInstallerCallbackService.cs" />
     <Compile Include="Lib\FontRegistry.cs" />
     <Compile Include="Lib\ServiceChecker.cs" />
     <Compile Include="Lib\ServiceInstaller.cs" />

@@ -33,15 +33,27 @@ namespace JLyshoel.FontInstaller.Lib
         public static void UnregisterFont(string fontName)
         {
             RegistryKey key = Registry.LocalMachine.CreateSubKey(@"SOFTWARE\Microsoft\Windows NT\CurrentVersion\Fonts");
-            string fontFileName = (string) key.GetValue(fontName);
+            string fontFileName = (string)key.GetValue(fontName);
             key.DeleteValue(fontName);
             key.Close();
-            
+
             string fontFullPath = Path.Combine(Environment.GetFolderPath(SpecialFolder.Windows), "Fonts", Path.GetFileName(fontFileName));
             if (File.Exists(fontFullPath))
             {
                 File.Delete(fontFullPath);
             }
+        }
+
+
+        public static bool IsValidFont(string fontFileName)
+        {
+            try
+            {
+                PrivateFontCollection fontCol = new PrivateFontCollection();
+                fontCol.AddFontFile(fontFileName);
+                return !string.IsNullOrEmpty(fontCol.Families[0].Name);
+            } catch (Exception) { }
+            return false;
         }
     }
 }

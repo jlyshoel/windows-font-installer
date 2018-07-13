@@ -35,6 +35,7 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -46,6 +47,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GUI\FontInstallerGUIService.cs" />
+    <Compile Include="GUI\Logger.cs" />
     <Compile Include="GUI\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -79,6 +82,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\windows-font-installer-lib\windows-font-installer-shared.csproj">
+      <Project>{BD941404-D518-4DC7-92EF-17676D6297E5}</Project>
+      <Name>windows-font-installer-shared</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -80,24 +80,19 @@ namespace JLyshoel.FontInstaller
     {
         private readonly string font = @"C:\temp\Pacifico.ttf";
 
+        public void FontInstalledCallback(bool installedOk, string message)
+        {
+            Console.WriteLine(installedOk + ": " + message);
+        }
+
         public void Run()
         {
-            // Consume the service
             var factory = new DuplexChannelFactory<IFontInstallerService>(new InstanceContext(this), new NetNamedPipeBinding(), new EndpointAddress("net.pipe://localhost/FontInstallerService"));
             var proxy = factory.CreateChannel();
 
-            Console.WriteLine(proxy.InstallFont(font));
+            proxy.InstallFont(font);
         }
 
-        public void NotifyClient()
-        {
-            Console.WriteLine("Notification from Server");
-        }
-
-        public void FontInstalledCallback(bool installedOk, string message)
-        {
-            Console.WriteLine("Notification from Server");
-        }
     }
 
 

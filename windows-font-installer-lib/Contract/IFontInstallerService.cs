@@ -11,7 +11,7 @@ namespace JLyshoel.FontInstaller.Contract
     public interface IFontInstallerService
     {
         [OperationContract]
-        string InstallFont(string fontFilePath);
+        void InstallFont(string fontFilePath);
     }
 
 }

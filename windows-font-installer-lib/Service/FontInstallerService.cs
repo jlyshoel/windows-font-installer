@@ -13,24 +13,19 @@ namespace JLyshoel.FontInstaller.Service
     [ServiceBehavior(InstanceContextMode = InstanceContextMode.PerCall)]
     public class FontInstallerService : IFontInstallerService
     {
-        public string InstallFont(string fontFilePath)
+        public void InstallFont(string fontFilePath)
         {
+            var callback = OperationContext.Current.GetCallbackChannel<IFontInstallerCallbackService>();
+
             try
             {
                 FontRegistry.RegisterFont(fontFilePath);
-                return "OK";
+                callback.FontInstalledCallback(true, "");
             }
             catch (Exception e)
             {
-                return e.Message;
+                callback.FontInstalledCallback(false, e.Message);
             }
-
-
-
-            // Get a handle to the call back channel
-            //var callback = OperationContext.Current.GetCallbackChannel<IFontInstallerCallbackService>();
-            //callback.NotifyClient();
-            //return DateTime.Now.ToString();
         }
     }
 

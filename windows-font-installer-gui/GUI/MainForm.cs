@@ -1,4 +1,5 @@
-﻿using System;
+﻿using JLyshoel.FontInstaller.Lib;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,13 +14,14 @@ namespace JLyshoel.FontInstaller.GUI
 {
     public partial class MainForm : Form
     {
+        
         public MainForm()
         {
             InitializeComponent();
 
             FileUploadLabel.AllowDrop = true;
             FileUploadLabel.DragEnter += new DragEventHandler(FileUploadLabel_DragEnter);
-            FileUploadLabel.DragDrop += new DragEventHandler(FileUploadLabel_DragDrop); 
+            FileUploadLabel.DragDrop += new DragEventHandler(FileUploadLabel_DragDrop);
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
@@ -58,10 +60,21 @@ namespace JLyshoel.FontInstaller.GUI
             InstallLog.Text = "";
         }
 
-        private void InstallFont(string stringFontFile)
+        private void InstallFont(string fontFileName)
         {
-            WriteToLog("Found file: " + stringFontFile);
-
+            if (FontRegistry.IsValidFont(fontFileName))
+            {
+                WriteToLog("Found font file: " + fontFileName);
+                WriteToLog("Starting install");
+                var t = Task.Run(() =>
+                {
+                    (new FontInstallerGUIService(new Logger(this, InstallLog))).InstallFont(fontFileName);
+                });
+            }
+            else
+            {
+                WriteToLog("Invalid or unknown font file: " + fontFileName);
+            }
         }
 
         private void WriteToLog(string line)
