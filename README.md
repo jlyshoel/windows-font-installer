@@ -3,6 +3,9 @@ In Windows 10 you can't install fonts without admin privileges. There doesn’t 
 
 It works by installing a service, running under the local system account, and a simple desktop application for your users to upload fonts. 
 
+## Download
+[I'm an inline-style link](/Release/windows-font-installer-setup.msi)
+
 ## Risks
 In fairness, Microsoft do have a point when choosing to disable and remove this ability. There is a possibility that fonts may contain executable code. By using this tool you will give your users the ability to install this type of malicious code.
 
