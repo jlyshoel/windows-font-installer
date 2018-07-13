@@ -11,9 +11,9 @@ using System.Windows.Forms;
 
 namespace JLyshoel.FontInstaller.GUI
 {
-    public partial class Form1 : Form
+    public partial class MainForm : Form
     {
-        public Form1()
+        public MainForm()
         {
             InitializeComponent();
 
@@ -57,7 +57,6 @@ namespace JLyshoel.FontInstaller.GUI
         {
             InstallLog.Text = "";
         }
-
 
         private void InstallFont(string stringFontFile)
         {
