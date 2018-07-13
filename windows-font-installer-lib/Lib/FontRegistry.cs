@@ -3,6 +3,7 @@ using System;
 using System.Drawing;
 using System.Drawing.Text;
 using System.IO;
+using System.Runtime.InteropServices;
 using static System.Environment;
 
 namespace JLyshoel.FontInstaller.Lib
@@ -16,9 +17,7 @@ namespace JLyshoel.FontInstaller.Lib
                 new FileNotFoundException();
             }
 
-            PrivateFontCollection fontCol = new PrivateFontCollection();
-            fontCol.AddFontFile(fontFileName);
-            string fontName = fontCol.Families[0].Name;
+            string fontName = GetFontName(fontFileName);
 
             File.Copy(fontFileName,
                 Path.Combine(Environment.GetFolderPath(SpecialFolder.Windows),
@@ -28,7 +27,6 @@ namespace JLyshoel.FontInstaller.Lib
             key.SetValue(fontName, Path.GetFileName(fontFileName));
             key.Close();
         }
-
 
         public static void UnregisterFont(string fontName)
         {
@@ -44,16 +42,35 @@ namespace JLyshoel.FontInstaller.Lib
             }
         }
 
-
         public static bool IsValidFont(string fontFileName)
         {
             try
             {
+                byte[] data = File.ReadAllBytes(fontFileName);
+                IntPtr hGlob = Marshal.AllocCoTaskMem(data.Length);
+                Marshal.Copy(data, 0, hGlob, data.Length);
                 PrivateFontCollection fontCol = new PrivateFontCollection();
-                fontCol.AddFontFile(fontFileName);
+                fontCol.AddMemoryFont(hGlob, data.Length);
                 return !string.IsNullOrEmpty(fontCol.Families[0].Name);
-            } catch (Exception) { }
+            }
+            catch (Exception) { }
             return false;
+        }
+
+
+        public static string GetFontName(string fontFileName)
+        {
+            try
+            {
+                byte[] data = File.ReadAllBytes(fontFileName);
+                IntPtr hGlob = Marshal.AllocCoTaskMem(data.Length);
+                Marshal.Copy(data, 0, hGlob, data.Length);
+                PrivateFontCollection fontCol = new PrivateFontCollection();
+                fontCol.AddMemoryFont(hGlob, data.Length);
+                return fontCol.Families[0].Name;
+            }
+            catch (Exception) { }
+            return null;
         }
     }
 }
