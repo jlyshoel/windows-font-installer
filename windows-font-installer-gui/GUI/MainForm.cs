@@ -81,5 +81,13 @@ namespace JLyshoel.FontInstaller.GUI
         {
             InstallLog.Text += line + "\r\n";
         }
+
+        private void aboutToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            using (AboutBox box = new AboutBox())
+            {
+                box.ShowDialog(this);
+            }
+        }
     }
 }
