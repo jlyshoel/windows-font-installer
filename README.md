@@ -13,6 +13,9 @@ In fairness, Microsoft do have a point when choosing to disable and remove this 
 
 Another aspect is licensing. Fonts have different licensing agreements. By using this tool, you will effectively be handing over the legal responsibility to your users.
 
+## Support
+Create an issue on Github and I'll try to get back to you as soon as possible.
+
 ## Screenshot
 ![alt text](/assets/screenshot.png "User interface")
 ![alt text](/assets/screenshot2.png "Service")
